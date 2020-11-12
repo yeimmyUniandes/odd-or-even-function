@@ -2,15 +2,15 @@ node {
     stage('Init') {
         checkout scm
     }
+    
+     stage('Test') {
+        sh 'mvn test'
+    }
 
     stage('Build') {
         sh 'mvn clean package'
     }
     
-    stage('Test') {
-        sh 'mvn test'
-    }
-
     stage('Publish') {
         azureFunctionAppPublish appName: env.FUNCTION_NAME, 
                                 azureCredentialsId: env.AZURE_CRED_ID, 
