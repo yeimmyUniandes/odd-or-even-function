@@ -51,6 +51,6 @@ public class FunctionTest {
         final HttpResponseMessage ret = new Function().run(req, context);
 
         // Verify
-        assertEquals(ret.getStatus(), HttpStatus.SC_UNAUTHORIZED);
+        assertEquals(ret.getStatus(), HttpStatus.FORBIDDEN);
     }
 }
